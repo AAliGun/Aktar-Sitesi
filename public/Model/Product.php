@@ -31,11 +31,12 @@ function GetProduct($id): string
                                 <div class="product-inner">
                                     <h2 class="product-name">'.$product['Name'].'</h2>
                                     <div class="product-inner-price">
-                                        '.$product['Price'].'
+                                        '.$product['Price'].' TL
                                     </div>
 
-                                    <form action="POST/AddToCard.php?page=1&ProductID=' . $product['ProductID'] . '" class="cart">
+                                    <form action="POST/AddToCard.php" class="cart">
                                         <div class="quantity">
+                                            <input type="number" size="4" class="input-text qty text" readonly title="Qty" value="' . $product['ProductID'] . '" name="ProductID" >
                                             <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
                                         <button class="add_to_cart_button" type="submit">Sepete Ekle</button>

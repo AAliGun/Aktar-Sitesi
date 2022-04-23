@@ -1,10 +1,8 @@
 <?php
 Session_start();
 include($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
-$user = $_SESSION['user'];
-if(!isset($user)){
-    $user = 6;
-}
+$user = $_SESSION['user'] ?? 6;
+
 $URL = '172.105.73.62';
 $PORT = '5000';
 

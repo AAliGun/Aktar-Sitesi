@@ -40,13 +40,17 @@ echo getNavbar("cart.php")?>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
                                             <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-name">Ürüm</th>
+                                            <th class="product-price">Fiyat</th>
+                                            <th class="product-quantity">Sayı</th>
+                                            <th class="product-subtotal">Toplam</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
+                                    <?php
+                                    $cart = CartQuery($_SESSION['user']);
+                                    ?>
                                         <tr class="cart_item">
                                             <td class="product-remove">
                                                 <a title="Remove this item" class="remove" href="#">×</a>

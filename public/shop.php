@@ -29,7 +29,6 @@ echo getNavbar("shop.php")?>
             <div class="row">
                 <?php
                 $page = $_GET['page'] ?? 1;
-                include 'POST/API.php';
                 // include 'Model/ProductCard.php';
                 $products = ProductListQuery($page);
                 foreach ($products as $product ){
