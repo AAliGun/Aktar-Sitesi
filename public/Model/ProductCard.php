@@ -1,7 +1,8 @@
 <?php
-
+include ($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
 function getProductCard($product,$page) {
-    include '../POST/API.php';
+    // include '../POST/API.php';
+
     $images = ImageQuery($product['ProductID']) ?? Array('URL' => '../../public/img/no-image.png');
 
     $image = $images[1] ?? Array('URL' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1200px-OOjs_UI_icon_alert-warning.svg.png');

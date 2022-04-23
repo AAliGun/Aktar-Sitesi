@@ -30,7 +30,7 @@ echo getNavbar("shop.php")?>
                 <?php
                 $page = $_GET['page'] ?? 1;
                 include 'POST/API.php';
-                include 'Model/ProductCard.php';
+                // include 'Model/ProductCard.php';
                 $products = ProductListQuery($page);
                 foreach ($products as $product ){
                     echo getProductCard($product,$page);
