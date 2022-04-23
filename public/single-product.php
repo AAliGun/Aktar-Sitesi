@@ -37,14 +37,15 @@ echo getNavbar("single-product.php")?>
                     <?php include 'Model/Product.php';
                     echo GetProduct($_GET['id']);?>
 
-                    <?php echo "TEST1";?>
+
                         <div class="related-products-wrapper">
-                            <?php echo "TEST2";?>
+
                             <h2 class="related-products-title">Yeni Ürünler</h2>
-                            <?php echo "TEST3";?>
+
                             <div class="related-products-carousel">
-                                <?php echo "TEST4";?>
-                                <?php include($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
+
+                                <?php include 'Model/LastFiveProduct.php';
+                                echo GetLastFiveProduct();
                                 echo "TEST"; ?>
 
                             </div>

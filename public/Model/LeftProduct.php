@@ -2,23 +2,7 @@
 $URL = '172.105.73.62';
 $PORT = '5000';
 
-function SendPost($url, $data) {
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://' . $GLOBALS['URL'] . ':' . $GLOBALS['PORT'] .'/'. $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => $data,
-    ));
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
+
 function RandomProductQuery($count){
     $data = array(
         'count' => $count
@@ -30,7 +14,7 @@ function RandomProductQuery($count){
         5: {'ProductID': 11, 'Name': 'Nane', 'Price': 74.0, 'Content': 'Nane açıklaması', 'Stok': 85, 'Category': 'ot'}}
     UnSuccess : "False"
     Error : "Exception"*/
-    return json_decode(SendPost('random_product_query',$data), true);
+    return json_decode(aSendPost('random_product_query',$data), true);
 }
 function LeftProduct(): string
 {
@@ -121,3 +105,20 @@ function LeftProductExample() : string
                 </div>';
 }
 
+function aSendPost($url, $data) {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://' . $GLOBALS['URL'] . ':' . $GLOBALS['PORT'] .'/'. $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => $data,
+    ));
+    $response = curl_exec($curl);
+    curl_close($curl);
+    return $response;
+}
