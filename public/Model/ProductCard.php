@@ -15,7 +15,7 @@ function getProductCard($product,$page) {
                                     <ins>' . $product['Price'] . ' TL</ins>
                                 </div>
                                 <div class="product-option-shop">
-                                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="POST/AddToCard.php?page=' . $page . '&ProductID=' . $product['ProductID'] . '">Add to cart</a>
+                                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="POST/AddToCard.php?page=' . $page . '&ProductID=' . $product['ProductID'] . '">Sepete Ekle</a>
                                 </div>
                             </div>
                         </div>';

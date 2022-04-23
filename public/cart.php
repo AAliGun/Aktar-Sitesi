@@ -29,7 +29,7 @@ echo getNavbar("cart.php")?>
         <div class="container">
             <div class="row">
                 <?php include 'Model/LeftProduct.php';
-                echo LeftProductExample();?>
+                echo LeftProduct();?>
 
                 <div class="col-md-8">
                     <div class="product-content-right">
