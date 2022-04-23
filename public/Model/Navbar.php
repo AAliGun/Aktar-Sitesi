@@ -1,5 +1,6 @@
 <?php
 Session_start();
+include($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
 $user = $_SESSION['user'];
 if(!isset($user)){
     $user = 6;

@@ -1,7 +1,5 @@
 <?php
-include ($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
 function getProductCard($product,$page) {
-    // include '../POST/API.php';
 
     $images = ImageQuery($product['ProductID']) ?? Array('URL' => '../../public/img/no-image.png');
 

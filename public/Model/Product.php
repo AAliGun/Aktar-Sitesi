@@ -1,40 +1,6 @@
 <?php
 
 
-$URL = '172.105.73.62';
-$PORT = '5000';
-
-function PSendPost($url, $data) {
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://' . $GLOBALS['URL'] . ':' . $GLOBALS['PORT'] .'/'. $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => $data,
-    ));
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
-function ProductQuery($ProductID){
-    $data = array(
-        'product_id' => $ProductID
-    );
-    /*Success : {'ProductID': 1,
-        'Name': 'test',
-        'Price': 44.0,
-        'Content': 'test açıklama',
-        'Stok': 50,
-        'Category': 'test category'}
-    UnSuccess : "False"
-    Error : "Exception"*/
-    return json_decode(PSendPost('product_query',$data), true);
-}
 function GetProduct($id): string
 {
 

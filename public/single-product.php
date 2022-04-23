@@ -39,16 +39,11 @@ echo getNavbar("single-product.php")?>
 
 
                         <div class="related-products-wrapper">
-
                             <h2 class="related-products-title">Yeni Ürünler</h2>
-
                             <div class="related-products-carousel">
-
                                 <?php include 'Model/LastFiveProduct.php';
-                                echo GetLastFiveProduct();
-                                echo "TEST"; ?>
-
-                            </div>
+                                echo GetLastFiveProduct(); ?>
+                      </div>
                         </div>
                     </div>
                 </div>
