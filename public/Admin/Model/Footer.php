@@ -21,7 +21,7 @@ echo '
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
-                            <li><a href="#">Hesabım</a></li>
+                            <li><a href="Profile.php">Hesabım</a></li>
                         </ul>
                     </div>
                 </div>

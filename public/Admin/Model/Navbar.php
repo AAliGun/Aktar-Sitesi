@@ -1,32 +1,10 @@
 <?php
 Session_start();
 include($_SERVER['DOCUMENT_ROOT'].'/Admin/API/API.php');
-$user = $_SESSION['user'] ?? 6;
+$user = $_SESSION['admin'] ?? 6;
 
 $URL = '172.105.73.62';
 $PORT = '5000';
-
-function GetCartData($url, $data) {
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://' . $GLOBALS['URL'] . ':' . $GLOBALS['PORT'] .'/'. $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => $data,
-    ));
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
-$data = array(
-    'user_id' => $user
-);
-$cart = json_decode(GetCartData('cart_price_count_query', $data),true);
 
 $html = '<div class="header-area">
         <div class="container">
@@ -34,10 +12,8 @@ $html = '<div class="header-area">
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="user.php"><i class="fa fa-user"></i>Hesabım</a></li>
-                            <li><a href="signup.php"><i class="fa fa-user"></i>Üye Ol</a></li>
-                            <li><a href="login.php"><i class="fa fa-user"></i> Giriş Yap</a></li>
-                            <li><a href="cart.php"><i class="fa fa-user"></i> Sepetim</a></li>
+                             <li><a href="Profile.php"><i class="fa fa-user"></i>Hesabım</a></li>
+                            <li><a href="Login.php"><i class="fa fa-user"></i>Giriş Yap</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,11 +31,7 @@ $html = '<div class="header-area">
                     </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.php">Sepet - <span class="cart-amunt">' .$cart['total_price'].' TL</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">'.$cart['total_product'].'</span></a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -77,8 +49,9 @@ $html = '<div class="header-area">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">Ana Sayfa</a></li>
-                        <li><a href="shop.php">Ürünler</a></li>
-                        <li><a href="cart.php">Sepet</a></li>
+                        <li><a href="Product.php">Ürün</a></li>
+                        <li><a href="UserManage.php">Kullanıcılar</a></li>
+                        <li><a href="Order.php">Siparişler</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,21 +67,17 @@ function getNavbar($page) {
         //replace the <a href="index.php"> with <a  class="active" href="index.php">
         $navbar = str_replace("<li><a href=\"index.php\">", "<li class=\"active\"><a  href=\"index.php\">", $GLOBALS['html']);
     }
-    else if ($page == "shop.php"){
+    else if ($page == "Product.php"){
         //replace the <a href="shop.php"> with <a  class="active" href="shop.php">
-        $navbar = str_replace("<li><a href=\"shop.php\">", "<li class=\"active\"><a class=\"active\" href=\"shop.php\">", $GLOBALS['html']);
+        $navbar = str_replace("<li><a href=\"Product.php\">", "<li class=\"active\"><a class=\"active\" href=\"Product.php\">", $GLOBALS['html']);
     }
-    else if ($page == "single-product.php"){
+    else if ($page == "UserManage.php"){
         //replace the <a href="single-product.php"> with <a  class="active" href="single-product.php">
-        $navbar = str_replace("<li><a href=\"single-product.php\">", "<li class=\"active\"><a class=\"active\" href=\"single-product.php\">", $GLOBALS['html']);
+        $navbar = str_replace("<li><a href=\"UserManage.php\">", "<li class=\"active\"><a class=\"active\" href=\"UserManage.php\">", $GLOBALS['html']);
     }
-    else if ($page == "cart.php"){
+    else if ($page == "Order.php"){
         //replace the <a href="cart.php"> with <a  class="active" href="cart.php">
-        $navbar = str_replace("<li><a href=\"cart.php\">", "<li class=\"active\"><a class=\"active\" href=\"cart.php\">", $GLOBALS['html']);
-    }
-    else if ($page == "checkout.php"){
-        //replace the <a href="checkout.php"> with <a  class="active" href="checkout.php">
-        $navbar = str_replace("<li><a href=\"checkout.php\">", "<li class=\"active\"><a class=\"active\" href=\"checkout.php\">", $GLOBALS['html']);
+        $navbar = str_replace("<li><a href=\"Order.php\">", "<li class=\"active\"><a class=\"active\" href=\"Order.php\">", $GLOBALS['html']);
     }
     else {
         $navbar = $GLOBALS['html'];

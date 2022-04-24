@@ -10,7 +10,7 @@ function GetLastFiveProduct(): string
 
         $html .= '<div class="single-product">
                                 <div class="product-f-image">
-                                    <img src="' . $image['URL'] . '" alt="">
+                                    <img src="' . $image['URL'] . '" alt="" width="500" height="500">
                                     <div class="product-hover">
                                         <a href="POST/AddToCard.php?ProductID=' . $product['ProductID'] . '" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
                                         <a href="single-product.php?id=' . $product['ProductID'] . '" class="view-details-link"><i class="fa fa-link"></i>Detay</a>
