@@ -19,14 +19,6 @@ echo getNavbar("index.php")?>
                 <div class="col-sm-6">
     <form action="login.php" method="post">
         <h2 class="text-center">GİRİŞ</h2>
-        <?php
-        // if permission is Bulunamadi print kullanıcı adı ve şifre yanlış
-        if ($_SESSION['Permisson'] == "Bulunamadi") {
-            echo '<div class="alert alert-danger" role="alert">
-                            Kullanıcı adı veya şifre yanlış.
-                            </div>';
-        }
-        ?>
         <div class="form-group">
             <input type="text" name="login" class="form-control" placeholder="Mail" required="required">
         </div>
@@ -34,7 +26,7 @@ echo getNavbar("index.php")?>
             <input type="password"  name = "password" class="form-control" placeholder="Şifre" required="required">
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" class="btn btn-primary btn-block">Giriş Yap</input>
+            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Giriş Yap"></input>
         </div>
         <div class="clearfix">
             <label class="float-left form-check-label"><input type="checkbox"> Beni Hatırla</label>

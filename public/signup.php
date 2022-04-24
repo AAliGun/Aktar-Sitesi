@@ -62,8 +62,10 @@ $user = UserQuery($_SESSION['user']);
                 <div class="col-sm-6">
 <?php
 echo '<form action="signup.php" method="post">
+<div class="form-group">
      <label for="name">Adınız</label><br>
      <input type="text" name="Name" value="" required><br>
+
      <label for="surname">Soyadınız</label><br>
      <input type="text" name="Surname" value="" required><br>
      <label for="mail">Mail Adresiniz</label><br>
@@ -84,6 +86,7 @@ echo '<form action="signup.php" method="post">
      <input type="password" name="Password2" required>
         <br>
      <input type="submit" name="submit" value="Kayıt Ol">
+</div>
      </form>';
 ?>
                 </div>

@@ -43,17 +43,7 @@ function getProductCard($product,$page) {
 }
 
 //Login
-function AdminLogin($username, $password) {
-    $data = array(
-        'admin_mail' => $username,
-        'admin_password' => $password
-    );
-    $response = SendPost('admin_login_query', $data);
-    /*Success : "True"
-    UnSuccess : "False"
-    Error : "Exception"*/
-    return json_decode($response, true);
-}
+
 function UserLogin($username, $password) {
     $data = array(
         'user_mail' => $username,

@@ -1,6 +1,6 @@
 <?php
 Session_start();
-include($_SERVER['DOCUMENT_ROOT'].'/POST/API.php');
+include($_SERVER['DOCUMENT_ROOT'].'/Admin/API/API.php');
 $user = $_SESSION['user'] ?? 6;
 
 $URL = '172.105.73.62';
@@ -51,13 +51,13 @@ $html = '<div class="header-area">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="./"><img src="img/logo.png"></a></h1>
+                        <h1><a href="../API"><img src="img/logo.png"></a></h1>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.php">Sepet - <span class="cart-amunt">'.$cart['total_price'].' TL</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">'.$cart['total_product'].'</span></a>
+                        <a href="cart.php">Sepet - <span class="cart-amunt">' .$cart['total_price'].' TL</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">'.$cart['total_product'].'</span></a>
                     </div>
                 </div>
             </div>
