@@ -15,11 +15,16 @@ function LeftProduct(): string
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>';
     foreach ($products as $product) {
+
+        $images = ImageQuery($product['ProductID']) ?? Array('URL' => '../../public/img/no-image.png');
+
+        $image = $images[1] ?? Array('URL' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1200px-OOjs_UI_icon_alert-warning.svg.png');
+
         $html .= '<div class="thubmnail-recent">
-                        <img src="https://thumbs.dreamstime.com/b/attention-sign-175914219.jpg" class="recent-thumb" alt="">
+                        <img src="'.$image['URL'].'" class="recent-thumb" alt="">
                         <h2><a href="product.php?id=' . $product['ProductID'] . '">' . $product['Name'] . '</a></h2>
                         <div class="product-sidebar-price">
-                            <ins>' . $product['Price'] . ' TL</ins>
+                            <ins>' . $product['Price'] . ' TL</ins> <del>' . $product['Price'] * 1.5 . ' TL</del>
                         </div>
                     </div>';
     }

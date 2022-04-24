@@ -6,7 +6,7 @@ function GetLastFiveProduct(): string
     $html = "";
     foreach ($last_products as $product) {
         $images = ImageQuery($product['ProductID']);
-        $image = $images[2] ?? array('URL' => '../img/product-1.jpg');
+        $image = $images[1] ?? array('URL' => '../img/product-1.jpg');
 
         $html .= '<div class="single-product">
                                 <div class="product-f-image">
@@ -20,7 +20,7 @@ function GetLastFiveProduct(): string
                                 <h2><a href="single-product.php?id=' . $product['ProductID'] . '">' . $product['Name'] . '</a></h2>
 
                                 <div class="product-carousel-price">
-                                    <ins>' . $product['Price'] . ' TL</ins>
+                                    <ins>' . $product['Price'] . ' TL</ins> <del>' . $product['Price'] * 1.5 . ' TL</del>
                                 </div>
                             </div>';
     }

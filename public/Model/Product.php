@@ -5,6 +5,8 @@ function GetProduct($id): string
 {
 
     $product = ProductQuery($id);
+    $images = ImageQuery($product['ProductID']);
+    $image = $images[1] ?? array('URL' => 'img/product-thumb-2.jpg');
     $html = '<div class="product-content-right">
                         <div class="product-breadcroumb">
                             <a href="../index.php">Ana Sayfa</a>
@@ -16,13 +18,15 @@ function GetProduct($id): string
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="img/product-2.jpg" alt="">
+                                        <img src="'.$image['URL'].'" alt="">
                                     </div>
 
-                                    <div class="product-gallery">
-                                        <img src="img/product-thumb-1.jpg" alt="">
-                                        <img src="img/product-thumb-2.jpg" alt="">
-                                        <img src="img/product-thumb-3.jpg" alt="">
+                                    <div class="product-gallery">';
+
+    foreach($images as $image){
+        $html .= '<img src="'.$image['URL'].'" alt="">';
+    }
+    $html .='
                                     </div>
                                 </div>
                             </div>

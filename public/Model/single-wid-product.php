@@ -3,7 +3,7 @@
 function single_wid_product_func( $product ) {
     $images = ImageQuery($product['ProductID']) ?? Array('URL' => '../../public/img/no-image.png');
 
-    $image = $images[2] ?? Array('URL' => 'img/product-thumb-1.jpg');
+    $image = $images[1] ?? Array('URL' => 'img/product-thumb-1.jpg');
 
     echo '<div class="single-wid-product">
                             <a href=single-product.php?id=' . $product['ProductID'] . '"><img src="'.$image['URL'].'" alt="" class="product-thumb"></a>

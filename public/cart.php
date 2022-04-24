@@ -49,11 +49,11 @@ echo getNavbar("cart.php")?>
 
                                     <tbody>
                                     <?php
-                                    $cart = CartQuery($_SESSION['user']??2);
+                                    $cart = CartQuery($_SESSION['user']??6);
                                     $total = 0;
                                     foreach ($cart as $product){
                                         $images = ImageQuery($product['ProductID']['ProductID']);
-                                        $image = $images[2] ?? array('URL' => 'img/product-thumb-2.jpg');
+                                        $image = $images[1] ?? array('URL' => 'img/product-thumb-2.jpg');
 
                                         echo '<tr class="cart_item">
                                             <td class="product-remove">
