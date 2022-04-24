@@ -10,7 +10,13 @@
 <?php include 'Model/Navbar.php';
 echo getNavbar("index.php")?>
 
-<div class="login-form col-xl-12">
+<div class="container">
+    <div class="row">
+        <?php include 'Model/LeftProduct.php';
+        echo LeftProduct();?>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-sm-6">
     <form action="login.php" method="post">
         <h2 class="text-center">GİRİŞ</h2>
         <?php
@@ -22,7 +28,7 @@ echo getNavbar("index.php")?>
         }
         ?>
         <div class="form-group">
-            <input type="text" name="login" class="form-control" placeholder="Giriş ID" required="required">
+            <input type="text" name="login" class="form-control" placeholder="Mail" required="required">
         </div>
         <div class="form-group">
             <input type="password"  name = "password" class="form-control" placeholder="Şifre" required="required">
@@ -36,7 +42,11 @@ echo getNavbar("index.php")?>
         </div>
     </form>
 </div>
-
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <?php
 include 'Model/Footer.php';
 include 'Model/Scripts.php'

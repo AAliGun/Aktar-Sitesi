@@ -250,6 +250,13 @@ function CartQuery($UserID){
         Error : "Exception"*/
     return json_decode(SendPost('cart_query',$data), true);
 }
+function CartToOrder($UserID){
+    $data = array(
+        'user_id' => $UserID
+    );
+
+    return json_decode(SendPost('cart_user_procedure',$data), true);
+}
 //Order
 function OrderInsert($UserID, $status){
     $data = array(
